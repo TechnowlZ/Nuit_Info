@@ -4,7 +4,10 @@
 var questionrepondue = false;
 var droitAuClick = true;
 timer()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9577c865cf6a7160fb4257d0e8df8d9cb41ee295
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -28,14 +31,14 @@ elt4.addEventListener('click', function(e) {
 })
 
 //ajout element appuyer sur entrée ssi déjà choix question
-const nextquest = document.getElementById('jaaj');
+/*const nextquest = document.getElementById('jaaj');
 nextquest.addEventListener('keypress', function(e) {
     if (e.key === 'Enter' && questionrepondue){
         // quand entrer est presser faire
         passNextQuestion();
     }
 
-})
+})*/
 
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
@@ -55,8 +58,8 @@ function passNextQuestion() {
 //permet d'enlever l'affichage des autres bouttons
 function choice(a){
     if (droitAuClick){
-        for (let i; i<buttons.length;i++){
-            if (a != i){
+        for (let i=0; i<buttons.length;i++){
+            if (a != i+1){
                 buttons[i].style.display="none"; 
             }
         }
@@ -68,36 +71,35 @@ function choice(a){
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
     textereponse.style.display="none"; 
-    
 }
 
 //la fonction newBoard permet de tout remettre en place pour la prochaine question
 function newBoard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="block";
     }
-    textereponse.style.display="block"; 
+    textereponse.style.display="block";     
 }
 
 
 // TIMER
 
 function timer(){
-    let temps = 100
-        const timerElement = document.getElementById("timer")
-
+    let temps = 5   
+    console.log("here")
+    const timerElement = document.getElementById("timer")
         function diminuerTemps() {
-            timerElement.innerText = temps
-            temps--
-            if (temps<=0){
-                passNextQuestion();
+            if(temps>=0){
+                timerElement.innerText = temps
+                temps--
+                console.log("here")
             }
         }
-    setInterval(diminuerTemps, 1000)
+        setInterval(diminuerTemps, 1000)
 }
 
 
