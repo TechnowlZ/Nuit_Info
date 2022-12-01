@@ -14,14 +14,6 @@
     background-color: blue;
     border-radius: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 50px;
-    flex-wrap: wrap;
-    height: 200px;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
     justify-content: center;
 }
 
@@ -33,9 +25,6 @@
     margin-top: 20%;
 }
 
-.boutons button{
-    width: 80%;
-    height: 140px;
 .texte p{
     font-size: 2em;
     border-radius: 30px;
@@ -45,31 +34,54 @@
     color: white;
 }
 
-.boutons button:hover{
+.choix > div > button:hover {
     cursor: pointer;
-    width: 90%;
+    transform: scale(1.1);
+    width: 85%;
     background-color:rgb(179, 179, 208);
     height: 150px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px black;
 }
 
-.boutons > div {
+.choix > div > button:active {
+    transition: 0.1s;
+    transform: scale(0.9);
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.choix > div > button {
     display: flex;
     flex: 1;
     padding: 10px;
+    width: 90%;
+    height: 200px;
+    transition: 0.3s;
+    border-radius: 30px;
+    background-color: aliceblue;
     align-content: center;
     justify-content: center;
     margin: auto;
+}
+
 .choix{
     display: flex;
-    margin-top: 10%;
+    margin: 20px auto;
     justify-content: space-evenly;
     width: 100%;
+    position: absolute;
+    bottom: 0px;
 }
 
 .droite, .gauche{
+    flex: 1;
     display: flex;
     flex-direction: column;
+    row-gap: 20px;
 }
 
 @media (max-width: 80em) {
@@ -80,30 +92,4 @@
     .boutons > div {
         width: 100%;
     }
-    justify-content: center;
-}
-
-.timer p {
-    color: white;
-}
-
-.texte{
-    margin-top: 20%;
-}
-
-.texte p{
-    font-size: 2em;
-    color: white;
-}
-
-.choix{
-    display: flex;
-    margin-top: 10%;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.droite, .gauche{
-    display: flex;
-    flex-direction: column;
 }
