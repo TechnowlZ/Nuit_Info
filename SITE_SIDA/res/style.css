@@ -1,5 +1,5 @@
 .affichage{
-    background: url("imageTest.jpg");
+    background: url("../assets/imageTest.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -11,13 +11,27 @@
 
 #question {
     text-shadow: 0px 0px 5px black;
-    background: rgb(13,13,13);
-    background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
     width: 100%;
-    height: 100vh;
-    margin-top: -15vh;
+    height: calc(100vh - 7em);
     text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#noticeAnswer {
+    background: url("../assets/info_icon.svg"), green;
+    background-position: -15px -15px;
+    background-repeat: no-repeat;
+    background-size: 5em;
+    width: 80%;
+    max-width: 800px;
+    margin: 0px auto;
+    border-radius: 50px;
+}
+
+#noticeAnswer object {
+    width: 1em;
 }
 
 .timer{
@@ -36,13 +50,15 @@
 
 .texte{    
     width: 100%;
+    background: rgb(13,13,13);
+    background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
 }
 
 .texte p{
     font-size: 2em;
     border-radius: 30px;
     border: none;
-    margin: auto;
+    margin: 20px;
     transition: 0.25s;
     color: white;
 }
@@ -93,7 +109,7 @@ button {
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0.7039370078740157) 81%, rgba(255,255,255,0) 100%); 
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.014173228346456734) 100%); 
 }
 
 .haut, .bas {
@@ -105,15 +121,15 @@ button {
 }
 
 @media (min-width: 800px) {
-    .haut, .bas { margin: auto 21vw; }
+    .haut, .bas { margin: auto; width: 770px; }
 }
 
-@media (max-width: 80em) {
-    .boutons {
+@media (max-width: 35em) {
+    .haut, .bas {
         flex-direction: column;
-        height: auto;
+        row-gap: 15px;
     }
-    .boutons > div {
-        width: 100%;
+    .choix {
+        height: 14em;
     }
 }
