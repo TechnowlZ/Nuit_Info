@@ -27,14 +27,14 @@ elt4.addEventListener('click', function(e) {
 })
 
 //ajout element appuyer sur entrée ssi déjà choix question
-const nextquest = document.getElementById('jaaj');
+/*const nextquest = document.getElementById('jaaj');
 nextquest.addEventListener('keypress', function(e) {
     if (e.key === 'Enter' && questionrepondue){
         // quand entrer est presser faire
         passNextQuestion();
     }
 
-})
+})*/
 
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
@@ -79,7 +79,7 @@ function newBoard(){
     for (let i; i<buttons.length;i++){
         buttons[i].style.display="block";
     }
-    textereponse.style.display="block"; 
+    textereponse.style.display="block";     
 }
 
 
