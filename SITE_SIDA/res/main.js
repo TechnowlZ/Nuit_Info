@@ -86,16 +86,16 @@ function newBoard(){
 
 function timer(){
     let temps = 30
-    while(temps>=0){
-        const timerElement = document.getElementById("timer")
-
+    console.log("here")
+    const timerElement = document.getElementById("timer")
         function diminuerTemps() {
-            timerElement.innerText = temps
-            temps--
+            if(temps>=0){
+                timerElement.innerText = temps
+                temps--
+                console.log("here")
+            }
         }
         setInterval(diminuerTemps, 1000)
-    }
-    passNextQuestion()
 }
 
 
