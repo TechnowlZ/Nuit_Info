@@ -4,10 +4,6 @@
 var questionrepondue = false;
 var droitAuClick = true;
 timer()
-<<<<<<< HEAD
-
-=======
->>>>>>> 9577c865cf6a7160fb4257d0e8df8d9cb41ee295
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -68,7 +64,6 @@ function choice(a){
     }
 }
 
-
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
     for (let i=0; i<buttons.length;i++){
@@ -85,11 +80,10 @@ function newBoard(){
     textereponse.style.display="block";     
 }
 
-
 // TIMER
 
 function timer(){
-    let temps = 5   
+    let temps = 30
     console.log("here")
     const timerElement = document.getElementById("timer")
         function diminuerTemps() {
@@ -102,19 +96,18 @@ function timer(){
         setInterval(diminuerTemps, 1000)
 }
 
-
-    
+//Appel à l'API de base
 function getAllSituations(idStory) {
 
-  let url = `https://publicedge.ml/night-info/get_first_situation.php?id_story=0"` + idStory
-  console.log(url);
-
-  const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function () {
-    jsonObj = JSON.parse(this.responseText);
-
-    resultsOnPage(jsonObj)
-  };
-  xmlhttp.open("GET", url);
-  xmlhttp.send();
+    let url = https://publicedge.ml/night-info/get_first_situation.php?id_story=0" + idStory
+    console.log(url);
+  
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function () {
+      jsonObj = JSON.parse(this.responseText);
+  
+      resultsOnPage(jsonObj)
+    };
+    xmlhttp.open("GET", url);
+    xmlhttp.send();
 }
