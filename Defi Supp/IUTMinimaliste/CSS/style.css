@@ -1,5 +1,5 @@
 .ligne {
-    height: 33%;
+    height: calc(100%/3);
     width: 100%;
      display: flex;
      flex-direction: row;
@@ -9,24 +9,40 @@
     height: 100%;
     width: 100%;
 }
-button,
+button{
+    height: 100%;
+    width: 100%;
+    font-size: min(2.5vw,2.5vh);
+}
 input{
     height: 100%;
     width: 100%;
 }
-main {
+.box {
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    padding: 10%;
-    width: 100vw;
-    height: 100vw;
-
+    width: min(70vw,90vh);
+    height: min(70vw,90vh);
+    margin: 8vh auto 0 auto;
 }
 button,
 input,
 body {
     padding: 0;
     margin: 0;
+}
+
+/*Partie N*/
+
+img{
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top :0;
+}
+
+.background{
+    background: url("//exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
 }
