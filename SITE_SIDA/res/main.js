@@ -3,7 +3,7 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
 var droitAuClick = true;
-
+//timer()
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -54,7 +54,7 @@ function passNextQuestion() {
 //permet d'enlever l'affichage des autres bouttons
 function choice(a){
     if (droitAuClick){
-        for (let i; i<buttons.length;i++){
+        for (let i=0; i<buttons.length;i++){
             if (a != i){
                 buttons[i].style.display="none"; 
             }
@@ -67,7 +67,7 @@ function choice(a){
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
     textereponse.style.display="none"; 
@@ -86,17 +86,17 @@ function newBoard(){
 // TIMER
 
 function timer(){
-    let temps = 100
+    let temps = 30
+    while(temps>=0){
         const timerElement = document.getElementById("timer")
 
         function diminuerTemps() {
             timerElement.innerText = temps
             temps--
-            if (temps<=0){
-                passNextQuestion();
-            }
         }
-    setInterval(diminuerTemps, 1000)
+        setInterval(diminuerTemps, 1000)
+    }
+    passNextQuestion()
 }
 
 
