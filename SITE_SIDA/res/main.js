@@ -64,6 +64,7 @@ function choice(a){
     }
 }
 
+
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
     for (let i=0; i<buttons.length;i++){
@@ -80,10 +81,11 @@ function newBoard(){
     textereponse.style.display="block";     
 }
 
+
 // TIMER
 
 function timer(){
-    let temps = 30
+    let temps = 5
     console.log("here")
     const timerElement = document.getElementById("timer")
         function diminuerTemps() {
@@ -99,13 +101,13 @@ function timer(){
 //Appel à l'API de base
 function getAllSituations(idStory) {
 
-    let url = https://publicedge.ml/night-info/get_first_situation.php?id_story=0" + idStory
+    let url = "https://publicedge.ml/night-info/get_first_situation.php?id_story=0" + idStory
     console.log(url);
   
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function () {
       jsonObj = JSON.parse(this.responseText);
-  
+    
       resultsOnPage(jsonObj)
     };
     xmlhttp.open("GET", url);
