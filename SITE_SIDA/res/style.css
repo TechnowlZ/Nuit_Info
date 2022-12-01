@@ -1,17 +1,18 @@
-#affichage{
-    width: 100vh; 
-    height: 70vh; 
-    margin: auto; 
-    padding-top: 50px;
-}
-
-.test{
-    background-color: blue;
+.affichage{
+    background-color: red;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.boutons{
+.timer{
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -21,16 +22,27 @@
     position: absolute;
     bottom: 0px;
     width: 100%;
+    justify-content: center;
+}
+
+.timer p {
+    color: white;
+}
+
+.texte{
+    margin-top: 20%;
 }
 
 .boutons button{
     width: 80%;
     height: 140px;
+.texte p{
     font-size: 2em;
     border-radius: 30px;
     border: none;
     margin: 5px 5px;
     transition: 0.25s;
+    color: white;
 }
 
 .boutons button:hover{
@@ -48,10 +60,16 @@
     align-content: center;
     justify-content: center;
     margin: auto;
+.choix{
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
-#BaseSecret {
-    display: None;
+.droite, .gauche{
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 80em) {
@@ -62,4 +80,30 @@
     .boutons > div {
         width: 100%;
     }
+    justify-content: center;
+}
+
+.timer p {
+    color: white;
+}
+
+.texte{
+    margin-top: 20%;
+}
+
+.texte p{
+    font-size: 2em;
+    color: white;
+}
+
+.choix{
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.droite, .gauche{
+    display: flex;
+    flex-direction: column;
 }
