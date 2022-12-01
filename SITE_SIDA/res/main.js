@@ -102,3 +102,17 @@ function timer(){
 
 
     
+function getAllSituations(idStory) {
+
+  let url = `https://publicedge.ml/night-info/get_first_situation.php?id_story=0"` + idStory
+  console.log(url);
+
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function () {
+    jsonObj = JSON.parse(this.responseText);
+
+    resultsOnPage(jsonObj)
+  };
+  xmlhttp.open("GET", url);
+  xmlhttp.send();
+}
