@@ -14,19 +14,19 @@
   <body>
     <!-- Site web de base, change lors de la commande secrete -->
     <div class="affichage">
-      <div class="timer">
+      <div id="timer">
         <p>Timer</p>
       </div>
       <div class="texte">
-        <p>Ceci est le texte de la question.</p>
+        <div id="question"><p>Ceci est le texte de la question.</p></div>
       </div>
       <div class="choix">
-        <div class="gauche">
+        <div class="haut">
           <button id="choix1">Choix 1</button>
-          <button id="choix2">Choix 2</button>
-        </div>
-        <div class="droite">
           <button id="choix3">Choix 3</button>
+        </div>
+        <div class="bas">
+          <button id="choix2">Choix 2</button>
           <button id="choix4">Choix 4</button>
         </div>
       </div>
@@ -37,5 +37,5 @@
 
   </body>
 
-  <script src="main.js"></script>
+  <script src="res/main.js"></script>
 </html>

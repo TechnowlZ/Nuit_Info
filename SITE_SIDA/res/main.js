@@ -1,24 +1,9 @@
 
 
-
-
 //une fonction permettant de changer quelque chose toute les 30 secondes
-var defaultTimeSeconds = 30;
-var secondLeft = defaultTimeSeconds;
-
-
 var questionrepondue = false;
 var droitAuClick = true;
-
-//fonction timer en background uwu
-setInterval(function() {
-    defaultTimeSeconds -= 1;
-    if(secondLeft <= 0){
-        passNextQuestion();
-        secondLeft = defaultTimeSeconds;
-    }
-}, 1000)
-
+//timer()
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -50,9 +35,7 @@ nextquest.addEventListener('keypress', function(e) {
     }
 
 })
-//document.getElementById("myDIV").style.display = "none"; 
 
-//setInterval(function, milliseconds)
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
 
@@ -63,6 +46,7 @@ function passNextQuestion() {
     //la faut changer valeur des boutons
     questionrepondue=false;
     newBoard();
+    timer();
     droitAuClick=true;
 }
 
@@ -70,7 +54,7 @@ function passNextQuestion() {
 //permet d'enlever l'affichage des autres bouttons
 function choice(a){
     if (droitAuClick){
-        for (let i; i<buttons.length;i++){
+        for (let i=0; i<buttons.length;i++){
             if (a != i){
                 buttons[i].style.display="none"; 
             }
@@ -83,7 +67,7 @@ function choice(a){
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
     textereponse.style.display="none"; 
@@ -102,8 +86,17 @@ function newBoard(){
 // TIMER
 
 function timer(){
-    let temps = 30;
-    const timerElement = 
+    let temps = 30
+    while(temps>=0){
+        const timerElement = document.getElementById("timer")
+
+        function diminuerTemps() {
+            timerElement.innerText = temps
+            temps--
+        }
+        setInterval(diminuerTemps, 1000)
+    }
+    passNextQuestion()
 }
 
 
