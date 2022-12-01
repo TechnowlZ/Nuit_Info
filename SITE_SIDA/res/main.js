@@ -55,7 +55,7 @@ function passNextQuestion() {
 function choice(a){
     if (droitAuClick){
         for (let i=0; i<buttons.length;i++){
-            if (a != i){
+            if (a != i+1){
                 buttons[i].style.display="none"; 
             }
         }
