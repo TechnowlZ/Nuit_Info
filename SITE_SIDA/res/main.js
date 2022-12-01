@@ -14,11 +14,6 @@ setInterval(function() {
     }
 }, 1000)
 
-//CC Albin
-const activeDiv = document.querySelector('.active');
-
-activeDiv.classList.add('hidden');                // Add the hidden class
-activeDiv.classList.remove('hidden');
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -60,6 +55,9 @@ function cleanboard()
     for (let i; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
+    
+
+    
 
 
     
