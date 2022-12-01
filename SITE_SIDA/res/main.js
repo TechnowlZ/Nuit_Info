@@ -3,7 +3,7 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
 var droitAuClick = true;
-//timer()
+timer()
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
@@ -85,7 +85,7 @@ function newBoard(){
 // TIMER
 
 function timer(){
-    let temps = 30
+    let temps = 5   
     console.log("here")
     const timerElement = document.getElementById("timer")
         function diminuerTemps() {
