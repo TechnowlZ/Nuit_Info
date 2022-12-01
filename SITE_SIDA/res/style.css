@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-evenly;
     margin-top: 50px;
+    flex-wrap: wrap;
 }
 
 .boutons button{
