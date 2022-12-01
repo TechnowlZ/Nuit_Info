@@ -1,0 +1,13 @@
+.affichage{
+    width: 100vh;
+    height: 70vh;
+    border: 2px solid black;
+    
+}
+
+#Base {
+    
+}
+#BaseSecret {
+    display: None;
+}
