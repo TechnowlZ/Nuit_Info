@@ -1,23 +1,8 @@
 
 
-
-
 //une fonction permettant de changer quelque chose toute les 30 secondes
-var defaultTimeSeconds = 30;
-var secondLeft = defaultTimeSeconds;
-
-
 var questionrepondue = false;
 var droitAuClick = true;
-
-//fonction timer en background uwu
-setInterval(function() {
-    defaultTimeSeconds -= 1;
-    if(secondLeft <= 0){
-        passNextQuestion();
-        secondLeft = defaultTimeSeconds;
-    }
-}, 1000)
 
 
 
@@ -50,9 +35,7 @@ nextquest.addEventListener('keypress', function(e) {
     }
 
 })
-//document.getElementById("myDIV").style.display = "none"; 
 
-//setInterval(function, milliseconds)
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
 
@@ -63,6 +46,7 @@ function passNextQuestion() {
     //la faut changer valeur des boutons
     questionrepondue=false;
     newBoard();
+    timer();
     droitAuClick=true;
 }
 
@@ -102,8 +86,17 @@ function newBoard(){
 // TIMER
 
 function timer(){
-    let temps = 30;
-    const timerElement = 
+    let temps = 100
+        const timerElement = document.getElementById("timer")
+
+        function diminuerTemps() {
+            timerElement.innerText = temps
+            temps--
+            if (temps<=0){
+                passNextQuestion();
+            }
+        }
+    setInterval(diminuerTemps, 1000)
 }
 
 
