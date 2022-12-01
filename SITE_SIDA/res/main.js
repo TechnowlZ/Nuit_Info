@@ -1,63 +1,103 @@
 
 
 //une fonction permettant de changer quelque chose toute les 30 secondes
-var defaultTimeSeconds = 30;
-var secondLeft = defaultTimeSeconds;
-
-
-
-setInterval(function() {
-    defaultTimeSeconds -= 1;
-    if(secondLeft <= 0){
-        passNextQuestion();
-        secondLeft = defaultTimeSeconds;
-    }
-}, 1000)
+var questionrepondue = false;
+var droitAuClick = true;
 
 
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
-elt1.addEventListener('click', choice(1) {          // On écoute l'événement click
-})
+elt1.addEventListener('click',function(e){    // On écoute l'événement click
+    choice(1);
+})  
+
 const elt2 = document.getElementById('choix2');
-elt2.addEventListener('click', choice(2) {
-}
+elt2.addEventListener('click',function(e){
+    choice(2);
+})
+
 const elt3 = document.getElementById('choix3');
-elt3.addEventListener('click', choice(3) {
+elt3.addEventListener('click', function(e){
+    choice(3);
 })
 
 const elt4 = document.getElementById('choix4');
-elt4.addEventListener('click', choice(4) {
+elt4.addEventListener('click', function(e) {
+    choice(4);
+})
+
+//ajout element appuyer sur entrée ssi déjà choix question
+const nextquest = document.getElementById('jaaj');
+nextquest.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && questionrepondue){
+        // quand entrer est presser faire
+        passNextQuestion();
+    }
 
 })
 
-//document.getElementById("myDIV").style.display = "none"; 
-
-//setInterval(function, milliseconds)
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
 
+//est appelée une fois que l'information a été affichée et que le client ai cliqué sur entrée
+//permet de changer l'image de background et l'intérieur des bouttons
 function passNextQuestion() {
-    
+    cleanboard();
+    //la faut changer valeur des boutons
+    questionrepondue=false;
+    newBoard();
+    timer();
+    droitAuClick=true;
 }
 
+//est appelée lors du clique du choix
+//permet d'enlever l'affichage des autres bouttons
 function choice(a){
-    for (let i; i<buttons.length;i++){
-        if (a != i){
-            buttons[i].style.display="none"; 
+    if (droitAuClick){
+        for (let i; i<buttons.length;i++){
+            if (a != i){
+                buttons[i].style.display="none"; 
+            }
         }
+        textereponse.style.display="block";
+        droitAuClick=false;
     }
-    textereponse.style.display="block";
 }
 
-function cleanboard()
 
+//la fonction cleanboard permet de tout enlever pour passer à la prochaine question
+function cleanboard(){
     for (let i; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
+    textereponse.style.display="none"; 
     
+}
 
-    
+//la fonction newBoard permet de tout remettre en place pour la prochaine question
+function newBoard(){
+    for (let i; i<buttons.length;i++){
+        buttons[i].style.display="block";
+    }
+    textereponse.style.display="block"; 
+}
+
+
+// TIMER
+
+function timer(){
+    let temps = 100
+        const timerElement = document.getElementById("timer")
+
+        function diminuerTemps() {
+            timerElement.innerText = temps
+            temps--
+            if (temps<=0){
+                passNextQuestion();
+            }
+        }
+    setInterval(diminuerTemps, 1000)
+}
 
 
     
