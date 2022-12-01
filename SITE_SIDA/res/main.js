@@ -54,7 +54,7 @@ function passNextQuestion() {
 //permet d'enlever l'affichage des autres bouttons
 function choice(a){
     if (droitAuClick){
-        for (let i; i<buttons.length;i++){
+        for (let i=0; i<buttons.length;i++){
             if (a != i){
                 buttons[i].style.display="none"; 
             }
@@ -67,7 +67,7 @@ function choice(a){
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="none";
     }
     textereponse.style.display="none"; 
