@@ -9,9 +9,6 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
-#timer{
-=======
 #question {
     text-shadow: 0px 0px 5px black;
     width: 100%;
@@ -38,7 +35,6 @@
 }
 
 .timer{
->>>>>>> 9577c865cf6a7160fb4257d0e8df8d9cb41ee295
     margin-top: 20px;
     width: 100px;
     height: 100px;
