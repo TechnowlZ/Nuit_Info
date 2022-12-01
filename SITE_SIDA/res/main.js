@@ -3,6 +3,7 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
 var droitAuClick = true;
+timer()
 
 
 
