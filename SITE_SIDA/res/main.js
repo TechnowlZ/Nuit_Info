@@ -71,12 +71,11 @@ function cleanboard(){
         buttons[i].style.display="none";
     }
     textereponse.style.display="none"; 
-    
 }
 
 //la fonction newBoard permet de tout remettre en place pour la prochaine question
 function newBoard(){
-    for (let i; i<buttons.length;i++){
+    for (let i=0; i<buttons.length;i++){
         buttons[i].style.display="block";
     }
     textereponse.style.display="block";     
