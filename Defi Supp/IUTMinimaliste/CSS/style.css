@@ -1,50 +1,3 @@
-
-.ligne {
-    height: calc(100%/3);
-    width: 100%;
-     display: flex;
-     flex-direction: row;
-     position: relative;
-}
-.ligne > div {
-    height: 100%;
-    width: 100%;
-}
-button{
-    height: 100%;
-    width: 100%;
-    font-size: min(1.7vw,1.7vh);
-}
-input{
-    height: 100%;
-    width: 100%;
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    width: min(50vw,50vh);
-    height: min(50vw,50vh);
-    margin: 15vh auto 0 auto;
-    background-color: white;
-}
-button,body {
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    color: black;
-    outline: none !important;
-}
-
-
-
-body{
-    background-image: url("https://exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
-    background-size: cover;
-}
-/*Partie N*/
 .imagesTop{
     margin-top: 20px;
     display: flex;
@@ -59,13 +12,37 @@ body{
     border-radius: 5px;
 }
 
-footer{
-    height: 70px;
+.box {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: min(50vw,50vh);
+    height: min(50vw,50vh);
+    margin: 15vh auto 0 auto;
+    background-color: white;
+}
+
+.ligne {
+    height: calc(100%/3);
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: #131313;
-    color: white;
+     display: flex;
+     flex-direction: row;
+     position: relative;
+}
+.ligne > div {
+    height: 100%;
+    width: 100%;
+}
+
+button{
+    height: 100%;
+    width: 100%;
+    font-size: min(1.7vw,1.7vh);
+    padding: 0;
+    margin: 0;
+    color: black;
+    outline: none !important;
 }
 input{
     all: unset;
@@ -80,9 +57,37 @@ input{
 }
 
 
-.sideBars{
+body{
+    background: url("https://exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 95vh;
+}
+
+/* .sideBars{
     background-color: white;
     text-align: left;
+} */
+
+
+
+footer{
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #131313;
+    color: white;
+}
+
+main{
+    display:flex;
+
+}
+.sideBars{
+    
 }
 
 h2{
