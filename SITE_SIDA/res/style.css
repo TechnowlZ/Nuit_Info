@@ -1,3 +1,6 @@
+@import url("./fonts.css");
+@import url("./animations.css");
+
 .affichage{
     background: url("../assets/imageTest.jpg");
     background-position: center;
@@ -17,21 +20,26 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: "Rounded font";
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 #noticeAnswer {
     background: url("../assets/info_icon.svg"), green;
-    background-position: -15px -15px;
+    background-position: -7px -7px;
     background-repeat: no-repeat;
     background-size: 5em;
-    width: 80%;
-    max-width: 800px;
+    width: 70%;
+    max-width: 500px;
     margin: 0px auto;
     border-radius: 50px;
-}
-
-#noticeAnswer object {
-    width: 1em;
+    font-family: "Rounded font Thin";
+    font-weight: 900;
+    font-size: 10px;
+    opacity: 0;
 }
 
 .timer{
@@ -109,7 +117,22 @@ button {
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.014173228346456734) 100%); 
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.014173228346456734) 100%);
+    -webkit-animation: slide-in-bottom 0.5s ease-out both;
+    animation: slide-in-bottom 0.5s ease-out both;
+}
+
+#nextInfo {
+    display: block;
+    position: fixed;
+    bottom: 15px;
+    padding: 15px 15px;
+    border-radius: 50px;
+    background-color: rgb(27, 107, 38);
+    font-family: "Rounded font";
+    font-style: italic;
+    -webkit-animation: jello-horizontal 0.9s infinite both;
+    animation: jello-horizontal 0.9s infinite both;
 }
 
 .haut, .bas {
@@ -118,6 +141,33 @@ button {
     flex-direction:row;
     margin: auto 10px;
     max-width: 800px;
+}
+
+.haut {
+    -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.bas {
+    -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
+}
+
+/* À exécuter en JS */
+/*.haut {
+	-webkit-animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10s both;
+	animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10s both;
+}
+
+.bas {
+	-webkit-animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
+	animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
+}*/
+
+#noticeAnswer {
+    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation-delay: 5s;
 }
 
 @media (min-width: 800px) {
