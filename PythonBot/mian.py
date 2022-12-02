@@ -5,8 +5,8 @@ import json
 token = "" #Token de votre bot discord
 id_server = 0 #ID de votre serveur 
 
-bot = interactions.Client(token="MTA0ODA2MTkyODM3MjcwNzQxOA.G4mXMo.S1jKRKK0QHH9fMJ3vkO_1B4M_FdI5mlFMYgqLg",
-                          default_scope = 1048063265219035138)
+bot = interactions.Client(token=token,
+                          default_scope = id_server)
 
 #URL vers la BD de notre site web
 url_recup = "https://publicedge.ml/night-info/get_Couleurs.php"
