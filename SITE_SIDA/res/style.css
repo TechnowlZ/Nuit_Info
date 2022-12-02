@@ -84,7 +84,7 @@
 
 .texte{    
     width: 100%;
-    background: rgb(13,13,13);
+    background: rgb(0, 0, 0);
     background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
 }
 
@@ -140,7 +140,7 @@ button {
     width: 100%;
     position: absolute;
     bottom: 0px;
-    height: 7em;
+    height: 9em;
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
     background: rgb(0,0,0);
