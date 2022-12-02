@@ -1,3 +1,4 @@
+
 .ligne {
     height: calc(100%/3);
     width: 100%;
@@ -12,37 +13,78 @@
 button{
     height: 100%;
     width: 100%;
-    font-size: min(2.5vw,2.5vh);
+    font-size: min(1.7vw,1.7vh);
 }
 input{
     height: 100%;
     width: 100%;
 }
+
 .box {
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    width: min(70vw,90vh);
-    height: min(70vw,90vh);
-    margin: 8vh auto 0 auto;
+    width: min(50vw,50vh);
+    height: min(50vw,50vh);
+    margin: 15vh auto 0 auto;
+    background-color: white;
 }
-button,
-input,
-body {
+button,body {
     padding: 0;
     margin: 0;
+    background-color: white;
+    color: black;
+    outline: none !important;
 }
 
+
+
+body{
+    background-image: url("https://exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
+    background-size: cover;
+}
 /*Partie N*/
+.imagesTop{
+    margin-top: 20px;
+    display: flex;
 
-img{
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    top :0;
+}
+.imgTop {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-self: center;
+    backdrop-filter: blur(2px);
+    border-radius: 5px;
 }
 
-.background{
-    background: url("//exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
+footer{
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #131313;
+    color: white;
+}
+input{
+    all: unset;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    color: black;
+    background-color: white;
+    text-align: center;
+}
+
+
+.sideBars{
+    background-color: white;
+    text-align: left;
+}
+
+h2{
+    font-weight:bold;
 }
