@@ -15,7 +15,7 @@ for (let i = 0; i < buttons.length; i++) {
 //ajout element appuyer sur entrée ssi déjà choix question
 
 document.addEventListener("keydown", (event) => {
-  var code = event.code;
+  var code = event.key;
   if (code == "Enter") {
     passNextQuestion();
   }
@@ -36,18 +36,34 @@ document.addEventListener("click", function (e) {
   droitAuClick = true;
 }*/
 
+function loadUI() {
+  document.getElementById("question").style.display="flex";
+  document.getElementById("choix").style.display="flex";
+  document.getElementById("haut").style.display="flex";
+  document.getElementById("bas").style.display="flex";
+}
+
 //est appelée lors du clique du choix
 //permet d'enlever l'affichage des autres bouttons
-function choice(numchoix) {
-  if (droitAuClick) {
-    for (let i = 0; i < buttons.length; i++) {
-      if (numchoix != i + 1) {
-        buttons[i].style.display = "none";
-      }
+function choice(a){
+
+    if (droitAuClick){
+        for (let index = 0; index < document.getElementsByClassName("haut").length; index++) {
+            const element = document.getElementsByClassName("haut")[index];
+            element.style.setProperty("animation", "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both");
+        }
+        for (let index = 0; index < document.getElementsByClassName("bas").length; index++) {
+            const element = document.getElementsByClassName("bas")[index];
+            element.style.setProperty("animation", "slide-out-elliptic-bottom-bck 0.7s ease-out .75s both");
+        }
+        
+        droitAuClick=false;
+
     }
-    droitAuClick = false;
-  }
-  elemNoticeAnswer.style.display = "block";
+    document.getElementById("nextInfo").style.display ="block";
+    document.getElementById("nextInfo").style.setProperty("animation", "swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2.5s both, jello-horizontal 2s infinite 4s both");
+    
+    elemNoticeAnswer.style.display="block";
 
   document.getElementById("question-phrase").display = "block";
 
@@ -149,4 +165,8 @@ function searchNextSituation(id) {
   } else {
     window.alert("C'est fini, bro");
   }
+}
+
+function passNextQuestion(idQuestion) {
+    
 }
