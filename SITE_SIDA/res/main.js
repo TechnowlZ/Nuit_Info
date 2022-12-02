@@ -53,7 +53,10 @@ function choice(numchoix) {
 
   document.getElementById("texte-solution").innerText =
     arrayButtonTextSolution[numchoix];
-  if (situation.choice[numchoix].value == situation.choice[numchoix].id_situation_next) {
+  if (
+    situation.choice[numchoix].value ==
+    situation.choice[numchoix].id_situation_next
+  ) {
     document.getElementById("noticeAnswer").style.backgroundColor = "red";
   } else {
     document.getElementById("noticeAnswer").style.backgroundColor = "green";
@@ -76,13 +79,12 @@ function timer() {
   const timerElement = document.getElementById("timer");
   timerElement.display = "block";
   let temps = 10;
-  
+
   let stop = setInterval(diminuerTemps, 1000);
   setTimeout(() => {
-    timerElement.style.display="none";
+    timerElement.style.display = "none";
     clearInterval(stop);
-
-  }, "12000")
+  }, "12000");
 
   function diminuerTemps() {
     timerElement.innerText = temps;
