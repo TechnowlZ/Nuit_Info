@@ -2,6 +2,9 @@
 var questionrepondue = false;
 var droitAuClick = true;
 timer();
+
+var allSituations = null;
+
 var elemNoticeAnswer = document.getElementById("noticeAnswer");
 
 const buttons = ["choix1", "choix2", "choix3", "choix4"];
@@ -26,6 +29,8 @@ document.addEventListener("click", function (e) {
   passNextQuestion();
 });
 
+loadUI();
+
 //---------------------FONCTIONS-----------------------
 
 //est appelée une fois que l'information a été affichée et que le client ait cliqué sur entrée
@@ -37,6 +42,7 @@ document.addEventListener("click", function (e) {
 }*/
 
 function loadUI() {
+  getAllSituations(2);
   document.getElementById("question").style.display = "flex";
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
@@ -112,8 +118,6 @@ function timer() {
   }
 }
 
-var allSituations = null;
-getAllSituations(2);
 
 //Appel à l'API de base
 function getAllSituations(idStory) {
