@@ -53,12 +53,29 @@ document.addEventListener("click", function (e) {
 }*/
 
 function loadUI(numQuestion) {
+  console.log("[DEBUG] Loading details for question", numQuestion);
+  
   situation = allSituations[numQuestion];
+
+  document.getElementById("question-phrase").style ="";
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].style = "";
+  }
+  document.getElementById("noticeAnswer").style = "";
+  document.getElementById("nextInfo").style = "";
+
   loadSituation(situation);
+  
+  document.getElementById("question").style = "";
+  document.getElementById("choix").style = "";
+  document.getElementById("haut").style = "";
+  document.getElementById("bas").style = "";
+
   document.getElementById("question").style.display = "flex";
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
   document.getElementById("bas").style.display = "flex";
+
   timer();
 }
 
@@ -101,7 +118,7 @@ function choice(numchoix) {
 
   setTimeout(() => {
     questionrepondue = true;
-  }, "500");
+  }, "1");
 }
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
@@ -123,14 +140,19 @@ function timer() {
   let temps = 20;
 
   let stop = setInterval(diminuerTemps, 1000);
+  function stoptimer(){
+    clearInterval(stop);
+  }
   setTimeout(() => {
-    timerElement.style.display = "none";
     clearInterval(stop);
   }, "12000");
 
   function diminuerTemps() {
     timerElement.innerText = temps;
     temps--;
+    if (questionrepondue) {
+      stoptimer();
+    }
   }
 }
 
