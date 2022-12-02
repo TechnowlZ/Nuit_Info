@@ -121,14 +121,14 @@ function onDataLoaded(jsonObj) {
 }
 
 function loadSituation(situation) {
-  textereponse = situation.title;
+  //background
   if (situation.url.length > 0) {
-    document.getElementById(
-      "image"
-    ).style.backgroundImage = `url('${situation.url}')`;
+    document.getElementById("image").style.backgroundImage = `url('${situation.url}')`;
   }
+  //question
   document.getElementById("question-phrase").innerText = situation.title;
   arrayButtonTextSolution = [];
+  //bouton
   for (let i = 0; i < buttons.length; i++) {
     if (i < situation.choice.length) {
       arrayButtonTextSolution.push(situation.choice[i].text_result);
