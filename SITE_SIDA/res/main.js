@@ -52,15 +52,12 @@ function loadUI() {
 //est appelée lors du clique du choix
 //permet d'enlever l'affichage des autres bouttons
 function choice(numchoix) {
-  document
-    .getElementById("haut")
-    .style.setProperty(
-      "animation",
-      "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both"
-    );
+  document.getElementById("haut").style.setProperty(
+    "animation",
+    "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both"
+  );
 
-  const element = document.getElementById("bas");
-  element.style.setProperty(
+  document.getElementById("bas").style.setProperty(
     "animation",
     "slide-out-elliptic-bottom-bck 0.7s ease-out .75s both"
   );
