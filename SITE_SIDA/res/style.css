@@ -2,7 +2,7 @@
 @import url("./animations.css");
 
 .affichage{
-    background: url("../assets/imageTest.jpg");
+    background-image: url("https://images.unsplash.com/photo-1584036533827-45bce166ad94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -95,15 +95,16 @@ button {
     display: flex;
     flex: 1;
     width: 90%;
-    height: 3.5em;
+    height: 3em;
     transition: 0.3s;
     border-radius: 30px;
-    background-color: rgb(179, 124, 162);
+    background-color: rgb(255, 255, 255);
     align-content: center;
     justify-content: center;
     margin: auto;
     flex-flow: wrap;
     margin: auto 12px;
+    font-size: 22px;
 }
 
 .choix{
@@ -117,8 +118,8 @@ button {
     height: 7em;
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0.014173228346456734) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(255,255,255,0.014173228346456734) 100%);
     -webkit-animation: slide-in-bottom 0.5s ease-out both;
     animation: slide-in-bottom 0.5s ease-out both;
 }
@@ -172,7 +173,7 @@ button {
 #noticeAnswer {
     -webkit-animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    animation-delay: 5s;
+    animation-delay: 1.5s;
 }
 
 @media (min-width: 800px) {
