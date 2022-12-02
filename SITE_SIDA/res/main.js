@@ -15,8 +15,8 @@ for (let i = 0; i < buttons.length; i++) {
 //ajout element appuyer sur entrée ssi déjà choix question
 
 document.addEventListener("keydown", (event) => {
-  var code = event.code;
-  if (code == 13) {
+  var code = event.key;
+  if (code == "Enter") {
     passNextQuestion();
   }
 });
@@ -35,6 +35,13 @@ document.addEventListener("click", function (e) {
   questionrepondue = false;
   droitAuClick = true;
 }*/
+
+function loadUI() {
+  document.getElementById("question").style.display="flex";
+  document.getElementById("choix").style.display="flex";
+  document.getElementById("haut").style.display="flex";
+  document.getElementById("bas").style.display="flex";
+}
 
 //est appelée lors du clique du choix
 //permet d'enlever l'affichage des autres bouttons
@@ -156,4 +163,8 @@ function searchNextSituation(id) {
   } else {
     window.alert("C'est fini, bro");
   }
+}
+
+function passNextQuestion(idQuestion) {
+    
 }
