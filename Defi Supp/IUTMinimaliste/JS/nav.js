@@ -8,5 +8,8 @@ document.addEventListener('keydown', (event) => {
     if (code == "Backspace") {
         window.history.back();
     }
+    if(code == "KeyT"){
+        window.open('../Edited/st.html',"_self");
+    }
 
 });
