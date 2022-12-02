@@ -1,7 +1,6 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
 var droitAuClick = true;
-timer();
 
 var allSituations = null;
 
@@ -47,6 +46,7 @@ function loadUI() {
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
   document.getElementById("bas").style.display = "flex";
+  timer();
 }
 
 //est appelée lors du clique du choix
