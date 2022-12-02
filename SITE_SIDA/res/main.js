@@ -24,7 +24,7 @@ document.addEventListener("click", function (e) {
 });
 
 loadUI();
-
+ 
 //---------------------FONCTIONS-----------------------
 
 //est appelée une fois que l'information a été affichée et que le client ait cliqué sur entrée
