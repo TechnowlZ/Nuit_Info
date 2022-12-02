@@ -36,6 +36,11 @@ document.addEventListener('keypress', function(e) {
 
 })
 
+const nextInfo = document.getElementById('nextInfo');
+document.addEventListener('click',function(e){
+
+})
+
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
 
@@ -67,7 +72,7 @@ function choice(a){
 
     document.getElementById("question-phrase").display="block";
     document.getElementById("texte-solution").innerText = arrayButtonTextSolution[a]
-    if(situation.choice[a].value == situation.choice[a].id_situation_next){
+        if(situation.choice[a].value == situation.choice[a].id_situation_next){
         document.getElementById("noticeAnswer").style.backgroundColor="red"
     }else{
         document.getElementById("noticeAnswer").style.backgroundColor="green"
@@ -108,11 +113,12 @@ function timer(){
                 temps--
                 console.log("here")
             }
+            else {
+                pickbonnesolution();
+            }
         }
         setInterval(diminuerTemps, 1000)
 }
-
-
 
 
 
@@ -127,10 +133,10 @@ function getAllSituations(idStory) {
   
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function () {
-      jsonObj = JSON.parse(this.responseText);
-      allSituations = jsonObj;
+        jsonObj = JSON.parse(this.responseText);
+        allSituations = jsonObj;
         console.log(jsonObj)
-      onDataLoaded(jsonObj)
+        onDataLoaded(jsonObj)
     };
     xmlhttp.open("GET", url);
     xmlhttp.send();
@@ -143,7 +149,10 @@ function onDataLoaded(jsonObj){
     console.log(jsonObj)
     let situation = jsonObj[0];
     textereponse = situation.title;
-    document.getElementById("image").style.backgroundImage = `url('${situation.url}')`;
+    if(situation.url.length > 0){
+        document.getElementById("image").style.backgroundImage = `url('${situation.url}')`;
+
+    }
     document.getElementById("question-phrase").innerText = situation.title
     arrayButtonTextSolution = []
     console.log( buttons.length)
