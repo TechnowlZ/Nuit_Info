@@ -12,9 +12,6 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
-#timer{
-=======
 #question {
     text-shadow: 0px 0px 5px black;
     width: 100%;
@@ -46,7 +43,6 @@
 }
 
 .timer{
->>>>>>> ef774d6efa44502b37c67ab2641f9270f3a3d666
     margin-top: 20px;
     width: 100px;
     height: 100px;
@@ -136,8 +132,7 @@ button {
     background-color: rgb(27, 107, 38);
     font-family: "Rounded font";
     font-style: italic;
-    -webkit-animation: jello-horizontal 0.9s infinite both;
-    animation: jello-horizontal 0.9s infinite both;
+    opacity: 0;
 }
 
 .haut, .bas {
@@ -167,6 +162,11 @@ button {
 .bas {
 	-webkit-animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
 	animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
+}
+
+#nextInfo {
+-webkit-animation: swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, jello-horizontal 2s infinite 1.5s both;
+    animation: swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, jello-horizontal 2s infinite 1.5s both;
 }*/
 
 #noticeAnswer {
