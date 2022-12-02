@@ -5,7 +5,6 @@ var questionrepondue = false;
 var droitAuClick = true;
 timer()
 var elemNoticeAnswer = document.getElementById('noticeAnswer')
-elemNoticeAnswer.style.display="none";
 
 const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
 elt1.addEventListener('click',function(e){    // On écoute l'événement click
@@ -38,19 +37,19 @@ document.addEventListener('keypress', function(e) {
 
 const nextInfo = document.getElementById('nextInfo');
 document.addEventListener('click',function(e){
-
+    passNextQuestion();
 })
 
 //---------------------FONCTIONS-----------------------
 const buttons = [elt1, elt2, elt3, elt4];
 
-//est appelée une fois que l'information a été affichée et que le client ai cliqué sur entrée
+//est appelée une fois que l'information a été affichée et que le client ait cliqué sur entrée
 //permet de changer l'image de background et l'intérieur des bouttons
 function passNextQuestion() {
-    cleanboard();
-    //la faut changer valeur des boutons
-    /*questionrepondue=false;
-    newBoard();
+    searchNextSituation(id_situation_next);
+    questionrepondue=false;
+    droitAuClick=true;
+    /*
     timer();
     droitAuClick=true;*/
 }
@@ -65,20 +64,21 @@ function choice(a){
                 buttons[i].style.display="none"; 
             }
         }
-        elemNoticeAnswer.style.display="block";
         droitAuClick=false;
 
     }
+    elemNoticeAnswer.style.display="block";
 
     document.getElementById("question-phrase").display="block";
+    
     document.getElementById("texte-solution").innerText = arrayButtonTextSolution[a]
         if(situation.choice[a].value == situation.choice[a].id_situation_next){
         document.getElementById("noticeAnswer").style.backgroundColor="red"
     }else{
         document.getElementById("noticeAnswer").style.backgroundColor="green"
     }
-    
 
+    
     questionrepondue=true;
 }
 
@@ -91,20 +91,13 @@ function cleanboard(){
     elemNoticeAnswer.style.display="none"; 
 }
 
-//la fonction newBoard permet de tout remettre en place pour la prochaine question
-function newBoard(){
-    for (let i=0; i<buttons.length;i++){
-        buttons[i].style.display="block";
-    }
-    elemNoticeAnswer.style.display="block";     
-}
-
 
 
 // TIMER
 
 function timer(){
-    let temps = 5
+    document.getElementById("timer").display="block";
+    let temps = 10
     console.log("here")
     const timerElement = document.getElementById("timer")
         function diminuerTemps() {
@@ -114,6 +107,7 @@ function timer(){
                 console.log("here")
             }
             else {
+                document.getElementById("timer").display="none";
                 pickbonnesolution();
             }
         }
@@ -135,8 +129,7 @@ function getAllSituations(idStory) {
     xmlhttp.onload = function () {
         jsonObj = JSON.parse(this.responseText);
         allSituations = jsonObj;
-        console.log(jsonObj)
-        onDataLoaded(jsonObj)
+        loadSituation(jsonObj[0])
     };
     xmlhttp.open("GET", url);
     xmlhttp.send();
@@ -148,6 +141,10 @@ var arrayButtonTextSolution = []
 function onDataLoaded(jsonObj){
     console.log(jsonObj)
     let situation = jsonObj[0];
+   
+}
+
+function loadSituation(situation) {
     textereponse = situation.title;
     if(situation.url.length > 0){
         document.getElementById("image").style.backgroundImage = `url('${situation.url}')`;
@@ -170,7 +167,15 @@ function onDataLoaded(jsonObj){
     }
 }
 
-function searchNextSituation(){
-    
+function searchNextSituation(id){
+    if(id != -1){
+        for(situation in allSituations){
+            if(situation.id_situation_next == id){
+                loadSituation(situation)
+            }
+        }
+    } else {
+        window.alert("C'est fini, bro");
+    }
     
 }
