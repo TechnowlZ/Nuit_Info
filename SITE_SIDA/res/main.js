@@ -59,14 +59,21 @@ function passNextQuestion() {
 function choice(a){
 
     if (droitAuClick){
-        for (let i=0; i<buttons.length;i++){
-            if (a != i+1){
-                buttons[i].style.display="none"; 
-            }
+        for (let index = 0; index < document.getElementsByClassName("haut").length; index++) {
+            const element = document.getElementsByClassName("haut")[index];
+            element.style.setProperty("animation", "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both");
         }
+        for (let index = 0; index < document.getElementsByClassName("bas").length; index++) {
+            const element = document.getElementsByClassName("bas")[index];
+            element.style.setProperty("animation", "slide-out-elliptic-bottom-bck 0.7s ease-out .75s both");
+        }
+        
         droitAuClick=false;
 
     }
+    document.getElementById("nextInfo").style.display ="block";
+    document.getElementById("nextInfo").style.setProperty("animation", "swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2.5s both, jello-horizontal 2s infinite 4s both");
+    
     elemNoticeAnswer.style.display="block";
 
     document.getElementById("question-phrase").display="block";
