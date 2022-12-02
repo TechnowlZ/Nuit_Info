@@ -1,5 +1,7 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
+var situation = null;
+var PublicNumAnswered;
 
 const buttons = ["choix1", "choix2", "choix3", "choix4"];
 for (let i = 0; i < buttons.length; i++) {
@@ -13,17 +15,19 @@ for (let i = 0; i < buttons.length; i++) {
 
 document.addEventListener("keydown", (event) => {
   var code = event.key;
-  if (code == "Enter") {
+  if (code == "Enter" && questionrepondue) {
     passNextQuestion();
   }
 });
 
 const nextInfo = document.getElementById("nextInfo");
 document.addEventListener("click", function (e) {
-  passNextQuestion();
+  if (questionrepondue) {
+    passNextQuestion();
+  }
 });
 
-loadUI();
+loadUI(2);
  
 //---------------------FONCTIONS-----------------------
 
@@ -35,8 +39,8 @@ loadUI();
   droitAuClick = true;
 }*/
 
-function loadUI() {
-  getAllSituations(2);
+function loadUI(numQuestion) {
+  getAllSituations(numQuestion);
   document.getElementById("question").style.display = "flex";
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
@@ -47,10 +51,11 @@ function loadUI() {
 //est appelée lors du clique du choix
 //permet d'enlever l'affichage des autres bouttons
 function choice(numchoix) {
+  PublicNumAnswered = numchoix;
+
   document.getElementById("haut").style.setProperty(
     "animation",
-    "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both"
-  );
+    "slide-out-elliptic-bottom-bck 0.7s ease-out 0.5s both");
 
   document.getElementById("bas").style.setProperty(
     "animation",
@@ -71,7 +76,6 @@ function choice(numchoix) {
   document.getElementById("question-phrase").display = "block";
 
   document.getElementById("texte-solution").innerText = arrayButtonTextSolution[numchoix];
-  let id_situation_next = 
   if (
     situation.choice[numchoix].value ==
     situation.choice[numchoix].id_situation_next
@@ -80,15 +84,21 @@ function choice(numchoix) {
   } else {
     elemNoticeAnswer.style.backgroundColor = "green";
   }
-  questionrepondue = true;
+
+  setTimeout(() => {
+    questionrepondue = true;
+  }, "500");
 }
 
 //la fonction cleanboard permet de tout enlever pour passer à la prochaine question
 function cleanboard() {
+  document.getElementById("question-phrase").style.display="none";
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].style.display = "none";
   }
   document.getElementById("noticeAnswer").style.display = "none";
+  document.getElementById("nextInfo").style.display = "none";
+  
 }
 
 // TIMER
@@ -96,7 +106,7 @@ function cleanboard() {
 function timer() {
   const timerElement = document.getElementById("timer");
   timerElement.display = "block";
-  let temps = 10;
+  let temps = 20;
 
   let stop = setInterval(diminuerTemps, 1000);
   setTimeout(() => {
@@ -122,13 +132,13 @@ function getAllSituations(idStory) {
   xmlhttp.onload = function () {
     jsonObj = JSON.parse(this.responseText);
     allSituations = jsonObj;
-    loadSituation(jsonObj[0]);
+    situation = jsonObj[0];
+    loadSituation(situation);
   };
   xmlhttp.open("GET", url);
   xmlhttp.send();
 }
-/*
-var allSituations;
+/*var allSituations;
 console.log(allSituations);
 var arrayButtonTextSolution = [];
 
@@ -158,7 +168,7 @@ function loadSituation(situation) {
   }
 }
 
-function searchNextSituation(id) {
+/*function searchNextSituation(id) {
   if (id != -1) { //fini
     for (situation in allSituations) {
       if (situation.id_situation_next == id) {
@@ -168,6 +178,10 @@ function searchNextSituation(id) {
   } else {
     window.alert("C'est fini, bro");
   }
-}
+}*/
 
-function passNextQuestion(idQuestion) {}
+function passNextQuestion(idQuestion) {
+  cleanboard();
+  questionrepondue = false;
+  loadUI(situation.choice[PublicNumAnswered].id_situation_next);
+}
