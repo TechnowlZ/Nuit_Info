@@ -1,6 +1,8 @@
 .imagesTop{
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
+
 
 }
 .imgTop {
@@ -16,7 +18,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    vertical-align: center;
     width: min(50vw,50vh);
     height: min(50vw,50vh);
     margin: 15vh auto 0 auto;
@@ -56,40 +58,97 @@ input{
     text-align: center;
 }
 
-
 body{
     background: url("https://exemple.edu.umontpellier.fr/files/2018/07/Admission.jpg");
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     height: 95vh;
 }
 
-/* .sideBars{
-    background-color: white;
-    text-align: left;
-} */
-
-
-
 footer{
-    height: 70px;
+    height: 30vh;
     width: 100%;
-    position: absolute;
+    position: inline;
     bottom: 0;
-    background-color: #131313;
+    background-color: #2C3E50 ;
     color: white;
+    border:40PX,lawngreen ;
+    padding: 40px,30px;
+}
+
+.footer_img{
+    display: inline;
+    position:relative;
+    left: 10%;
+    margin: 10%;
+}
+
+.footer_img1{
+    display: inline;
+    width: 10%;
+    height: auto;
+}
+.footer_img2{
+    width: 50%;
+}
+
+.adresse{
+    padding-top: 5vh;
+    font-size: 1.5vh;
+    margin-left: 20%;
 }
 
 main{
-    display:flex;
-
+    display: flex;
+    max-height:100%;
+    font-size: min(1.7vw,1.7vh);
+    background-color:rgba(255,255,255,0.9);
 }
-.sideBars{
-    
+
+.sideBarRigth > *{
+    margin: 5%;
+    vertical-align: center;
 }
 
-h2{
+.sideBarLeft, .sideBarRigth{
+    width: 33%;
+    display: block;
+}
+
+.middleBar{
+    margin: 2%;
+}
+
+.help, .stats{
+    height: fit-content;
+    padding-left:10%;
+}
+
+.help, .informations, .chiffres, .stats{
+    vertical-align: center;
+    top : 5px;
+    text-justify: auto;
+}
+
+p{
+    text-align: left;
+}
+
+h2,h3{
+    text-align: center;
     font-weight:bold;
+}
+
+h2:hover{
+    color: #FF5660;
+}
+
+ul{
+    overflow: hidden;
+}
+
+.stats{
+    color:  #FF5660;
 }
