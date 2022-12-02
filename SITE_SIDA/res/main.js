@@ -1,8 +1,5 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
-var droitAuClick = true;
-timer();
-var elemNoticeAnswer = document.getElementById("noticeAnswer");
 
 const buttons = ["choix1", "choix2", "choix3", "choix4"];
 for (let i = 0; i < buttons.length; i++) {
@@ -41,6 +38,7 @@ function loadUI() {
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
   document.getElementById("bas").style.display = "flex";
+  timer();
 }
 
 //est appelée lors du clique du choix
@@ -56,29 +54,29 @@ function choice(numchoix) {
     "slide-out-elliptic-bottom-bck 0.7s ease-out .75s both"
   );
 
-  document.getElementById("nextInfo").style.display = "block";
-  document
-    .getElementById("nextInfo")
-    .style.setProperty(
-      "animation",
-      "swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2.5s both, jello-horizontal 2s infinite 4s both"
-    );
+  var element = document.getElementById("nextInfo");
+  element.style.display = "block";
+  element.style.setProperty(
+    "animation",
+    "swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2.5s both, jello-horizontal 2s infinite 4s both"
+  );
 
+  var elemNoticeAnswer = document.getElementById("noticeAnswer");
+  
   elemNoticeAnswer.style.display = "block";
 
   document.getElementById("question-phrase").display = "block";
 
-  document.getElementById("texte-solution").innerText =
-    arrayButtonTextSolution[numchoix];
+  document.getElementById("texte-solution").innerText = arrayButtonTextSolution[numchoix];
+  let id_situation_next = 
   if (
     situation.choice[numchoix].value ==
     situation.choice[numchoix].id_situation_next
   ) {
-    document.getElementById("noticeAnswer").style.backgroundColor = "red";
+    elemNoticeAnswer.style.backgroundColor = "red";
   } else {
-    document.getElementById("noticeAnswer").style.backgroundColor = "green";
+    elemNoticeAnswer.style.backgroundColor = "green";
   }
-
   questionrepondue = true;
 }
 
@@ -87,7 +85,7 @@ function cleanboard() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].style.display = "none";
   }
-  elemNoticeAnswer.style.display = "none";
+  document.getElementById("noticeAnswer").style.display = "none";
 }
 
 // TIMER
@@ -128,14 +126,15 @@ function getAllSituations(idStory) {
   xmlhttp.open("GET", url);
   xmlhttp.send();
 }
-
+/*
 var allSituations;
+console.log(allSituations);
 var arrayButtonTextSolution = [];
 
 function onDataLoaded(jsonObj) {
   console.log(jsonObj);
   let situation = jsonObj[0];
-}
+}*/
 
 function loadSituation(situation) {
   //background
@@ -159,7 +158,7 @@ function loadSituation(situation) {
 }
 
 function searchNextSituation(id) {
-  if (id != -1) {
+  if (id != -1) { //fini
     for (situation in allSituations) {
       if (situation.id_situation_next == id) {
         loadSituation(situation);
