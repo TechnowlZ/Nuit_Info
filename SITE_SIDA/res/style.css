@@ -1,5 +1,8 @@
+@import url("./fonts.css");
+@import url("./animations.css");
+
 .affichage{
-    background: url("imageTest.jpg");
+    background-image: url("https://images.unsplash.com/photo-1584036533827-45bce166ad94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -9,15 +12,35 @@
     align-items: center;
 }
 
+
 #question {
     text-shadow: 0px 0px 5px black;
-    background: rgb(13,13,13);
-    background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
     width: 100%;
-    height: 100vh;
-    margin-top: -15vh;
+    height: calc(100vh - 7em);
     text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Rounded font";
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+#noticeAnswer {
+    background: url("../assets/info_icon.svg"), green;
+    background-position: -7px -7px;
+    background-repeat: no-repeat;
+    background-size: 5em;
+    width: 70%;
+    max-width: 500px;
+    margin: 0px auto;
+    border-radius: 50px;
+    font-family: "Rounded font Thin";
+    font-weight: 900;
+    font-size: 10px;
+    opacity: 0;
 }
 
 .timer{
@@ -28,21 +51,24 @@
     border-radius: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.timer p {
+#timer p {
     color: white;
 }
 
 .texte{    
     width: 100%;
+    background: rgb(13,13,13);
+    background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
 }
 
 .texte p{
     font-size: 2em;
     border-radius: 30px;
     border: none;
-    margin: auto;
+    margin: 20px;
     transition: 0.25s;
     color: white;
 }
@@ -70,15 +96,16 @@ button {
     display: flex;
     flex: 1;
     width: 90%;
-    height: 3.5em;
+    height: 3em;
     transition: 0.3s;
     border-radius: 30px;
-    background-color: rgb(179, 124, 162);
+    background-color: rgb(255, 255, 255);
     align-content: center;
     justify-content: center;
     margin: auto;
     flex-flow: wrap;
     margin: auto 12px;
+    font-size: 22px;
 }
 
 .choix{
@@ -92,8 +119,23 @@ button {
     height: 7em;
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0.7039370078740157) 81%, rgba(255,255,255,0) 100%); 
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(255,255,255,0.014173228346456734) 100%);
+    -webkit-animation: slide-in-bottom 0.5s ease-out both;
+    animation: slide-in-bottom 0.5s ease-out both;
+}
+
+#nextInfo {
+    display: block;
+    position: fixed;
+    bottom: 15px;
+    padding: 15px 15px;
+    border-radius: 50px;
+    background-color: rgb(27, 107, 38);
+    font-family: "Rounded font";
+    font-style: italic;
+    -webkit-animation: jello-horizontal 0.9s infinite both;
+    animation: jello-horizontal 0.9s infinite both;
 }
 
 .haut, .bas {
@@ -104,16 +146,43 @@ button {
     max-width: 800px;
 }
 
-@media (min-width: 800px) {
-    .haut, .bas { margin: auto 21vw; }
+.haut {
+    -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
 
-@media (max-width: 80em) {
-    .boutons {
+.bas {
+    -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
+    animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
+}
+
+/* À exécuter en JS */
+/*.haut {
+	-webkit-animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10s both;
+	animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10s both;
+}
+
+.bas {
+	-webkit-animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
+	animation: slide-out-elliptic-bottom-bck 0.7s ease-out 10.25s both;
+}*/
+
+#noticeAnswer {
+    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation-delay: 1.5s;
+}
+
+@media (min-width: 800px) {
+    .haut, .bas { margin: auto; width: 770px; }
+}
+
+@media (max-width: 35em) {
+    .haut, .bas {
         flex-direction: column;
-        height: auto;
+        row-gap: 15px;
     }
-    .boutons > div {
-        width: 100%;
+    .choix {
+        height: 14em;
     }
 }

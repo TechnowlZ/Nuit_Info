@@ -13,12 +13,16 @@
 
   <body>
     <!-- Site web de base, change lors de la commande secrete -->
-    <div class="affichage">
+    <div class="affichage" id="image">
       <div id="timer">
         <p>Timer</p>
       </div>
       <div class="texte">
-        <div id="question"><p>Ceci est le texte de la question.</p></div>
+        <div id="question"><p id="question-phrase">Ceci est le texte de la question.</p>
+          <div id="noticeAnswer">
+            <p id="texte-solution"></p>
+          </div>
+        </div>
       </div>
       <div class="choix">
         <div class="haut">
@@ -30,6 +34,7 @@
           <button id="choix4">Choix 4</button>
         </div>
       </div>
+      <div id="nextInfo">Tapez sur Entrée pour continuer</div>
     </div>
 
     <!-- Partie accessible après execution du code secret -->

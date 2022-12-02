@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Rounded font";
+    src: url("../assets/fonts/MPLUSRounded1c-Regular.ttf");
+    font-variant: normal;
+}
+@font-face {
+    font-family: "Rounded font Bold";
+    src: url("../assets/fonts/MPLUSRounded1c-Bold.ttf");
+}
+@font-face {
+    font-family: "Rounded font Thin";
+    src: url("../assets/fonts/MPLUSRounded1c-Thin.ttf");
+}
