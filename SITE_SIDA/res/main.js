@@ -16,7 +16,7 @@ for (let i = 0; i < buttons.length; i++) {
 
 document.addEventListener("keydown", (event) => {
   var code = event.code;
-  if (code == "Enter") {
+  if (code == 13) {
     passNextQuestion();
   }
 });
@@ -38,18 +38,6 @@ document.addEventListener("click", function (e) {
 
 //est appelée lors du clique du choix
 //permet d'enlever l'affichage des autres bouttons
-<<<<<<< HEAD
-function choice(numchoix) {
-  if (droitAuClick) {
-    for (let i = 0; i < buttons.length; i++) {
-      if (numchoix != i + 1) {
-        buttons[i].style.display = "none";
-      }
-    }
-    droitAuClick = false;
-  }
-  elemNoticeAnswer.style.display = "block";
-=======
 function choice(a){
 
     if (droitAuClick){
@@ -69,7 +57,6 @@ function choice(a){
     document.getElementById("nextInfo").style.setProperty("animation", "swing-in-bottom-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 2.5s both, jello-horizontal 2s infinite 4s both");
     
     elemNoticeAnswer.style.display="block";
->>>>>>> 5bbbb9287a6caadad2991e695aa473130da42fd8
 
   document.getElementById("question-phrase").display = "block";
 
