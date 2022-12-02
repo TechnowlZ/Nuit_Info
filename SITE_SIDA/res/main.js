@@ -1,7 +1,22 @@
 //une fonction permettant de changer quelque chose toute les 30 secondes
 var questionrepondue = false;
 var situation = null;
-var PublicNumAnswered;
+
+//Appel à l'API de base
+let url = "https://bales.ml/nuit-info-2022/backend/get_first_situation.php?id_story";
+console.log("[DEBUG] API call emitted");
+
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function () {
+  jsonObj = JSON.parse(this.responseText);
+  allSituations = jsonObj;
+  console.log("[DEBUG] API connection successfull");
+  console.log("[INFO] Lookup for allSituations var for results");
+  loadUI(0);
+};
+xmlhttp.open("GET", url);
+xmlhttp.send();
+//
 
 const buttons = ["choix1", "choix2", "choix3", "choix4"];
 for (let i = 0; i < buttons.length; i++) {
@@ -26,8 +41,6 @@ document.addEventListener("click", function (e) {
     passNextQuestion();
   }
 });
-
-loadUI(2);
  
 //---------------------FONCTIONS-----------------------
 
@@ -40,7 +53,8 @@ loadUI(2);
 }*/
 
 function loadUI(numQuestion) {
-  getAllSituations(numQuestion);
+  situation = allSituations[numQuestion];
+  loadSituation(situation);
   document.getElementById("question").style.display = "flex";
   document.getElementById("choix").style.display = "flex";
   document.getElementById("haut").style.display = "flex";
@@ -120,24 +134,6 @@ function timer() {
   }
 }
 
-
-//Appel à l'API de base
-function getAllSituations(idStory) {
-  let url =
-    "https://publicedge.ml/night-info/get_first_situation.php?id_story=" +
-    idStory;
-  console.log(url);
-
-  const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function () {
-    jsonObj = JSON.parse(this.responseText);
-    allSituations = jsonObj;
-    situation = jsonObj[0];
-    loadSituation(situation);
-  };
-  xmlhttp.open("GET", url);
-  xmlhttp.send();
-}
 /*var allSituations;
 console.log(allSituations);
 var arrayButtonTextSolution = [];

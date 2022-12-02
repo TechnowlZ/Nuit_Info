@@ -12,9 +12,9 @@ let y = 0;
 arr[x][y].focus();
 arr[x][y].style.color="red";
 var links =[
-    ["https://iut-montpellier-sete.edu.umontpellier.fr/liut/","https://iut-montpellier-sete.edu.umontpellier.fr/formations/","https://iut-montpellier-sete.edu.umontpellier.fr/inscriptions/"],
-    ["https://iut-montpellier-sete.edu.umontpellier.fr/scolarite/","","https://iut-montpellier-sete.edu.umontpellier.fr/relations-entreprises/"],
-    ["https://iut-montpellier-sete.edu.umontpellier.fr/international/","https://iut-montpellier-sete.edu.umontpellier.fr/vie-etudiante/","https://iut-montpellier-sete.edu.umontpellier.fr/actualites/"]
+    ['../Edited/1.html','../Edited/2.html','../Edited/3.html'],
+    ['../Edited/4.html',"",'../Edited/6.html'],
+    ['../Edited/7.html','../Edited/8.html','../Edited/9.html']
 ]
 
 document.addEventListener('keydown', (event) => {
@@ -41,11 +41,14 @@ document.addEventListener('keydown', (event) => {
         y++;
        }
     }
+    if (code == "Backspace") {
+        window.history.back();
+    }
     arr[x][y].focus();
     arr[x][y].style.color="red";
 
     arr[x][y].addEventListener('click',function(e){    // On écoute l'événement click
         window.open(links[x][y],"_self");
     })
-}, false);
+});
 
