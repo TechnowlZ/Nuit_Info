@@ -1,6 +1,18 @@
 @import url("./fonts.css");
 @import url("./animations.css");
 
+.logo{
+    position: absolute;
+    width: 3%;
+    top: 20px;
+    left: 20px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100;
+}
+
 .titre-div{
     margin-top: 10%;
     margin-bottom: 2%;
@@ -40,7 +52,7 @@
     width: 100%;
     height: calc(100vh - 7em);
     text-align: center;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     font-family: "Rounded font";
@@ -84,7 +96,7 @@
 
 .texte{    
     width: 100%;
-    background: rgb(13,13,13);
+    background: rgb(0, 0, 0);
     background: radial-gradient(circle, rgba(13,13,13,1) 0%, rgba(0,0,0,0.5653543307086615) 24%, rgba(0,0,0,0.014173228346456734) 50%); 
 }
 
@@ -97,7 +109,7 @@
     color: white;
 }
 
-.choix > div > button:hover {
+#choix > div > button:hover {
     cursor: pointer;
     transform: scale(1.05);
     background-color:rgb(221, 126, 191);
@@ -106,7 +118,7 @@
     box-shadow: 0px 0px 10px black;
 }
 
-.choix > div > button:active {
+#choix > div > button:active {
     transition: 0.1s;
     transform: scale(0.9);
 }
@@ -116,7 +128,7 @@ button {
     background-color: transparent;
 }
 
-.choix > div > button {
+#choix > div > button {
     display: flex;
     flex: 1;
     width: 90%;
@@ -132,15 +144,15 @@ button {
     font-size: 22px;
 }
 
-.choix{
-    display: flex;
+#choix{
+    display: none;
     margin: 0px 20px auto;
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
     position: absolute;
     bottom: 0px;
-    height: 7em;
+    height: 9em;
     row-gap: 15px;
     padding: 40px 0px 20px 0px;
     background: rgb(0,0,0);
@@ -161,20 +173,20 @@ button {
     opacity: 0;
 }
 
-.haut, .bas {
+#haut, #bas {
     flex: 1;
-    display: flex;
+    display: none;
     flex-direction:row;
     margin: auto 10px;
     max-width: 800px;
 }
 
-.haut {
+#haut {
     -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
     animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
 
-.bas {
+#bas {
     -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
     animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) 0.1s both;
 }
@@ -196,22 +208,21 @@ button {
 }*/
 
 #noticeAnswer {
-    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    animation-delay: 1.5s;
+    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.5s both;
+    animation: scale-in-top 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.5s both;
 }
 
 @media (min-width: 800px) {
-    .haut, .bas { margin: auto; width: 770px; }
+    #haut, #bas { margin: auto; width: 770px; }
 }
 
 @media (max-width: 35em) {
-    .haut, .bas {
+    #haut, #bas {
         flex-direction: column;
         row-gap: 15px;
     }
-    .choix {
-        height: 14em;
+    #choix {
+        height: 18em;
     }
 }
 
