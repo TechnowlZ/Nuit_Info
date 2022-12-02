@@ -6,25 +6,34 @@ var droitAuClick = true;
 timer()
 var elemNoticeAnswer = document.getElementById('noticeAnswer')
 
-const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
-elt1.addEventListener('click',function(e){    // On écoute l'événement click
-    choice(1);
-})  
+const buttons = ['choix1', 'choix2', 'choix3', 'choix4'];
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i] = document.getElementById(buttons[i]);
+    elt2.addEventListener('click',function(e){
+        choice(i+1);
+    })
+}
 
-const elt2 = document.getElementById('choix2');
-elt2.addEventListener('click',function(e){
-    choice(2);
-})
 
-const elt3 = document.getElementById('choix3');
-elt3.addEventListener('click', function(e){
-    choice(3);
-})
+// const elt1 = document.getElementById('choix1');    // On récupère l'élément sur lequel on veut détecter le clic
+// elt1.addEventListener('click',function(e){    // On écoute l'événement click
+//     choice(1);
+// })  
 
-const elt4 = document.getElementById('choix4');
-elt4.addEventListener('click', function(e) {
-    choice(4);
-})
+// const elt2 = document.getElementById('choix2');
+// elt2.addEventListener('click',function(e){
+//     choice(2);
+// })
+
+// const elt3 = document.getElementById('choix3');
+// elt3.addEventListener('click', function(e){
+//     choice(3);
+// })
+
+// const elt4 = document.getElementById('choix4');
+// elt4.addEventListener('click', function(e) {
+//     choice(4);
+// })
 
 //ajout element appuyer sur entrée ssi déjà choix question
 document.addEventListener('keypress', function(e) {
@@ -41,7 +50,7 @@ document.addEventListener('click',function(e){
 })
 
 //---------------------FONCTIONS-----------------------
-const buttons = [elt1, elt2, elt3, elt4];
+// const buttons = [elt1, elt2, elt3, elt4];
 
 //est appelée une fois que l'information a été affichée et que le client ait cliqué sur entrée
 //permet de changer l'image de background et l'intérieur des bouttons
