@@ -98,18 +98,39 @@ function timer(){
         setInterval(diminuerTemps, 1000)
 }
 
+var allSituations = null
+getAllSituations(2);
+
 //Appel à l'API de base
 function getAllSituations(idStory) {
 
-    let url = "https://publicedge.ml/night-info/get_first_situation.php?id_story=0" + idStory
+    let url = "https://publicedge.ml/night-info/get_first_situation.php?id_story=" + idStory
     console.log(url);
   
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function () {
       jsonObj = JSON.parse(this.responseText);
-    
-      resultsOnPage(jsonObj)
+      allSituations = jsonObj;
+        console.log(jsonObj)
+      onDataLoaded(jsonObj)
     };
     xmlhttp.open("GET", url);
     xmlhttp.send();
+}
+
+var allSituations;
+
+function onDataLoaded(jsonObj){
+    console.log(jsonObj)
+    let situation = jsonObj[0];
+    textereponse = situation.title;
+    document.getElementById("image").style.backgroundImage = `url('${situation.url}')`;
+    document.getElementById("question-phrase").innerText = situation.title
+    for (let i=0; i < buttons.length; i++) {
+        console.log(situation);
+        buttons[i].innerText = situation.choice[i].text_btn
+        
+    }
+
+
 }
